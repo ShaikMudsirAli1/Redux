@@ -1,0 +1,121 @@
+       First  install react = " npx create-react-app redux-app
+       
+       Second install redux = "  npm i redux@4.0 "
+
+         " Integrated redux with  react. "
+ Steps:
+
+ .  Design the store { what you want keep in that store}
+
+ .  Define the actions  { what are the actions that user can perform in this 
+                        application }
+
+ .  Define the reducer   { these reducer take an action and return the updated state .}
+
+ .  Set up the store  { finally set up the store based on the reducer}
+
+ 
+
+
+       1 .  Design the store { We need to maintain List of bugs}
+
+       {
+         bugs:[  " bugs property contains List of Bugs "
+            {
+                id:1,
+                description: "",
+                resolved: false
+            }
+         ],
+         currentUser: {
+                 "currentUser property intially it is null"
+
+                 " When user logs in we are going to set this to
+                   an  object "
+         }
+       }
+
+
+       In this example our store has to slices once slices
+       is list of bugs and another slices for the currentUser
+       user and that means we are going to have two different
+       reducers.
+
+ 2 . Define the action
+
+     What are the actions that user can perform in bug tracking
+     application.
+
+     1. ADD A BUG 
+     2. MARK THE BUG RESOLVED 
+     3. DELETE THE BUG.
+     4. STATUS OF THE BUG CHANGE
+     5. FILTER LIST OF BUGS 
+     6. CHANGE THE SORT ORDER.
+
+     ACTION IS A PLAIN JAVASCRIPT OBJECT THAT DESCRIBES
+     WHAT JUST HAPPENED .
+       
+       => WE HAVE AN OBJECT { WITH TWO propertIES}
+     {
+        type: "ADD_BUG",
+        description:""
+     }
+
+     type is the only property that redux expects in our actions
+     objects.
+
+     WE HAVE TO USE STRINGS WHICH IS DESCRIPTIVE MEANS 
+     WHAT IS HAPPENED IN REDUX DEV TOOLS.
+
+     WHY USE STRINGS IVE USED UPPERCASE LETTER AND I HAVE
+     SEPRATED THESE WORDS USING AN UNDERSCORE IS A COMMON
+     CONVENTION IN REDUX CODE mosh use type: "bugAdded",
+     mosh using pastense because action represents what
+     just HAPPENED now.
+
+     IN DESCRIPTION propery that data associated with this
+     action when the user types in the text box to ADD
+     a bug you store the value in description property.
+
+     {
+        type: "bugAdded".
+        payload: {
+            description: ""
+
+         " These strucure it gives my actions a common and
+           consistent strucure ".
+
+        
+        }
+     }
+
+      Action object for removing bugs:
+
+      {
+        type: "bugRemoved"
+        payload: {
+            id: 1
+        }
+      }
+
+       We can identify the bug by its ID.
+
+
+       3 .  Creating a Reducer:
+
+
+
+
+
+
+
+
+         REDUX WORKFLOW:
+
+         When we dispatch an action our store is going 
+         to call our reducer function it is giving the
+         current state and the action that is dispatched.
+
+         Based on the type of action we are going to get
+         that new state
